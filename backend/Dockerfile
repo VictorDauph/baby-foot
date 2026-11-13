@@ -1,26 +1,32 @@
-# Utiliser une image de base
-FROM node:20-slim
-
-# Définir le répertoire de travail
+# ---------- base : commun à toutes les étapes ----------
+FROM node:20-slim AS base
 WORKDIR /app
-
-# Copier les fichiers package.json et package-lock.json dans le conteneur
 COPY package*.json ./
 
-# RUN est une instruction lancée au build de l'image.
-# Installer les dépendances (installation au sein du projet)
-RUN npm ci
-
-# Installer nodemon dans le conteneur (installation dans l'environnement de développement)
-RUN npm install -g nodemon
-
-# Copier le reste des fichiers dans le conteneur (pour le fonctionnement correct de nodemon)
+# ---------- dev : utilisé par docker-compose (target: dev) ----------
+# Toutes les dépendances + nodemon pour le rechargement à chaud
+FROM base AS dev
+RUN npm ci && npm install -g nodemon
 COPY . .
+CMD ["npm", "run", "start"]
 
+# ---------- build : compilation TypeScript ----------
+FROM base AS build
+RUN npm ci
+COPY tsconfig.json ./
+COPY src ./src
+RUN npx tsc
 
-#Cmd est une instruction lancée à l'instanciation du conteneur.
-# Commande à exécuter au démarrage du conteneur, pour l'environnement de prod 
-#l'environnement de dev est lancé via docker-compose.yml, qui utilise nodemon pour le rechargement à chaud
-CMD ["npm","run", "prod"]
-
-
+# ---------- prod : image d'exécution minimale (étape par défaut) ----------
+FROM node:20-slim AS prod
+ENV NODE_ENV=production
+WORKDIR /app
+COPY package*.json ./
+# Uniquement les dépendances de production
+RUN npm ci --omit=dev && npm cache clean --force
+# Uniquement le code compilé
+COPY --from=build /app/dist ./dist
+# Ne pas tourner en root
+USER node
+EXPOSE 3000
+CMD ["node", "dist/index.js"]
