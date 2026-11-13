@@ -1,6 +1,8 @@
 services:
   api:
-    build: ./backend
+    build:
+      context: ./backend
+      target: dev
     container_name: projet_baby_foot_back
     ports:
       - "3000:3000"
