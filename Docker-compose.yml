@@ -17,7 +17,9 @@ services:
     command: npm run start
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      target: dev
     container_name: projet_baby_foot_front
     ports:
       - "5173:5173"
