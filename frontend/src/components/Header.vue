@@ -11,7 +11,7 @@ function goHome() {
 <template>
     <header class="page-header">
 
-      <h1> <a @click="goHome">🍊</a> Baby-foot Tournament Manager boubou</h1>
+      <h1> <a @click="goHome">🍊</a> Baby-foot Tournament Manager</h1>
       <p class="subtitle">Organisez et gérez vos tournois simplement</p>
     </header>
 </template>
