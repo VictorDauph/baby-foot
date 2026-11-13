@@ -1,5 +1,5 @@
 ---
-# Clementine – Test Technique
+# baby-foot – Test Technique
 ---
 
 Pour rester aligné avec le périmètre du test et le temps imparti, je n’ai pas implémenté de système d’authentification ni d'utilisateurs. Les actions d’administration sont considérées comme accessibles dans cette version de démonstration.
@@ -43,7 +43,7 @@ npm run stop
 
 Un test auto, intégré à un workflow github ci Fonctionnel a été ajouté sur le backend
 Les tests automatisés sont automatiquement lancés par github actions au push:
-https://github.com/VictorDauph/clementine/actions
+https://github.com/VictorDauph/baby-foot/actions
 
 pour le lancer: 
 
