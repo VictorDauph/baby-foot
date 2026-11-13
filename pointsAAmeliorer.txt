@@ -1,0 +1,17 @@
+“J’ajouterais effectivement une authentification avec JWT basée sur les cookiees
+ pour gérer les rôles et sécuriser 
+l’accès aux fonctionnalités sensibles.”
+
+“Ensuite, je renforcerais la validation et la gestion des erreurs pour avoir des réponses 
+API plus homogènes et robustes.”
+
+“Je prendrais aussi le temps d’améliorer la couverture de tests, 
+notamment sur la logique métier comme la génération des matchs et le calcul du classement.”
+
+“Côté frontend, j’améliorerais l’expérience utilisateur avec une interface plus claire 
+et des retours visuels sur les actions.”
+
+“Enfin, j’irais un peu plus loin sur la structure globale, par exemple 
+en séparant davantage les couches (services, controllers) pour faciliter l’évolution du projet.
+Notemment avec l'utilisation de repositories sequelize, Ça faciliterait aussi le remplacement ou 
+l’évolution de la couche de persistence sans impacter le reste de l’application.”
