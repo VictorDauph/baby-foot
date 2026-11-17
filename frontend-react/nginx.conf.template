@@ -1,0 +1,12 @@
+server {
+    listen ${PORT};
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # Fallback SPA : toute URL qui ne correspond pas à un fichier réel
+    # (ex: /tournament/42) renvoie index.html, et c'est React Router
+    # qui affiche la bonne page côté navigateur.
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
