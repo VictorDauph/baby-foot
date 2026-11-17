@@ -21,7 +21,9 @@ const PORT = process.env.PORT
 // Activer CORS uniquement pour une seule origine
 //curl ifconfig.me pour connaître l'ip publique de votre pc
 const corsOptions = {
-    origin: process.env.CLIENT_URL, // Placer le domaine du client pour l'autoriser
+    // CLIENT_URL peut contenir plusieurs origines séparées par des virgules
+    // (ex: front Vue + front React). cors attend alors un tableau.
+    origin: process.env.CLIENT_URL?.split(',').map((url) => url.trim()),
     methods: 'GET,POST,DELETE,PUT', // Restreindre les méthodes autorisées
     allowedHeaders: ["Content-Type", "Authorization"], // Définir les en-têtes acceptés
     credentials: true, // Autoriser les cookies et les headers sécurisés (dont celui qui contient le jwt)
