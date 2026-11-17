@@ -34,6 +34,23 @@ services:
       - /app/node_modules
     command: npm run dev -- --host
 
+  frontend-react:
+    build:
+      context: ./frontend-react
+      target: dev
+    container_name: projet_baby_foot_front_react
+    ports:
+      - "5174:5173" # hôte:conteneur -> 5173 est déjà pris par le front Vue
+    environment:
+      VITE_API_URL: http://localhost:3000
+      VITE_USE_POLLING: "true" # hot reload malgré le volume Windows -> Linux
+    depends_on:
+      - api
+    volumes:
+      - ./frontend-react:/app
+      - /app/node_modules
+    command: npm run dev -- --host
+
   postgres:
     image: postgres:latest
     container_name: projet_baby_foot_BDD
