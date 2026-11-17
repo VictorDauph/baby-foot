@@ -1,0 +1,122 @@
+.page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.primaryButton {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.primaryButton:hover {
+  background: #1d4ed8;
+}
+
+.empty {
+  padding: 1rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.teamList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.teamList li {
+  padding: 0.6rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.matchList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.matchCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.secondaryButton {
+  padding: 0.1rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  background: #041526;
+}
+
+.rankingTableWrapper {
+  overflow-x: auto;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.rankingTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rankingTable th,
+.rankingTable td {
+  padding: 0.9rem 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rankingTable th:nth-child(2),
+.rankingTable td:nth-child(2) {
+  text-align: left;
+}
+
+.rankingTable thead {
+  background: #f1f5f9;
+}
+
+.rankingTable tbody tr:hover {
+  background: #f8fafc;
+}
+
+.positiveDiff {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.negativeDiff {
+  color: #dc2626;
+  font-weight: 600;
+}

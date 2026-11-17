@@ -1,0 +1,30 @@
+/* CSS Module : chaque classe est renommée au build (ex: .pageHeader
+   => .Header_pageHeader_x7f2a), donc impossible d'entrer en collision
+   avec une classe du même nom dans un autre composant. */
+
+.pageHeader {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
+/* Attention : un sélecteur de balise SEUL (ex: "a { }") n'est PAS
+   isolé par les CSS Modules, il s'appliquerait à toute l'appli.
+   Ici "h1" est sous .pageHeader, donc il ne touche que ce header. */
+.pageHeader h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #0f172a;
+}
+
+/* Dans Header.vue, c'était "a { }" : en <style scoped> Vue l'isole,
+   mais pas en CSS Module. On passe donc par une classe. */
+.homeLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: #64748b;
+}

@@ -1,0 +1,29 @@
+/* Dans ScoreForm.vue, "input" et "button" étaient isolés par <style scoped>.
+   En CSS Module, un sélecteur de balise seul serait GLOBAL :
+   on les place donc sous la classe du formulaire. */
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.scoreForm input {
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.scoreForm button {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.scoreForm button:hover {
+  background: #1d4ed8;
+}
